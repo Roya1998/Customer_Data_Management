@@ -82,7 +82,7 @@ const customersFromEurope = customers.map((person) => {
   return "Country is not in Europe";
 });
 
-// console.log(customersFromEurope);
+console.log(customersFromEurope);
 
 //----------------------------------------
 const customerWithPreAcc = customers.filter((obj) => {
@@ -93,8 +93,8 @@ const customerWithTrialAcc = customers.filter((obj) => {
   return obj.account === "Trial";
 });
 
-// console.log(customerWithPreAcc);
-// console.log(customerWithTrialAcc);
+console.log("Premium Accounts:", customerWithPreAcc);
+console.log("Trial Accounts:", customerWithTrialAcc);
 
 //------------------------------------
 
@@ -102,21 +102,19 @@ const isThereAlice = customers.some((obj) => obj.name === "Alice");
 
 const isThereSteve = customers.some((obj) => obj.name === "Steve");
 
-// console.log(isThereAlice, isThereSteve);
+console.log(isThereAlice, isThereSteve);
 
 // --------------------------------
 
-const changeAllNames = customers.forEach(
-  (userName) => (userName.name = "NO Name")
-);
+customers.forEach((userName) => (userName.name = "NO Name"));
 
-// console.log(customers);
+console.log(customers);
 
 // ----------------------------------------------------
 
 const taxOfProduct = orders.forEach(
   (obj) => (obj.tax = (obj.price * 10) / 100)
 );
-console.log(taxOfProduct); // tax of pro will be undefined but we will see tax in our orders array
+console.log(taxOfProduct); // tax of pro will be undefined but we will see tax in our orders array,because we used forEach method
 
 console.log(orders);
