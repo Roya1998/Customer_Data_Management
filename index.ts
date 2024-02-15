@@ -1,2 +1,4 @@
-let a: string ='abc'
+let user: number;
+user = 'sefser';
 
+console.log(user);

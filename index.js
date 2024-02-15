@@ -1,7 +1,26 @@
 // Task: Customer Data Management for an Online Store
 // Task 1
 
-const customers = [
+interface CustomerInfo {
+  id: number;
+  name: string;
+  email: string;
+  location: {
+    city: string,
+    country: string,
+  };
+  account: String;
+}
+
+interface OrderInfo {
+  orderId: number;
+  customerId: number;
+  product: string;
+  quantity: number;
+  price: number;
+}
+
+const customers: customerInfo[] = [
   {
     id: 1,
     name: "Alice",
@@ -39,7 +58,7 @@ const customers = [
   },
 ];
 
-const orders = [
+const orders: OrderInfo[] = [
   { orderId: 101, customerId: 1, product: "Laptop", quantity: 1, price: 1200 },
   {
     orderId: 102,
@@ -71,27 +90,27 @@ const orders = [
   },
 ];
 ///////---------- Task 1
-const customersEmail = customers.map((customer) => customer.email);
+const customersEmail: string[] = customers.map((customer) => customer.email);
 
-// console.log(customersEmail);
+console.log(customersEmail);
 
 ///////--------- Task 2
-const totalValue = orders.filter((order) => {
+const totalValue: number[] = orders.filter((order) => {
   return order.quantity * order.price > 1000;
 });
 
-// console.log(totalValue);
+console.log(totalValue);
 
 ////-------------- Task 3
 
 const customerAlice = customers.find((customer) => customer.name === "Alice");
-// console.log(customerAlice);
+console.log(customerAlice);
 
 ////------------------ Task 4
 
 const orderIndex = orders.findIndex((order) => order.orderId === 102);
 
-// console.log(orderIndex);
+console.log(orderIndex);
 
 ///------------------- Task 5
 
@@ -99,7 +118,7 @@ const customersInUsa = customers.some(
   (customer) => customer.location.country === "USA"
 );
 
-// console.log(customersInUsa);
+console.log(customersInUsa);
 
 /////------------------------- Task 6
 
