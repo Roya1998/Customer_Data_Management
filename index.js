@@ -103,18 +103,20 @@ console.log(totalValue);
 
 ////-------------- Task 3
 
-const customerAlice = customers.find((customer) => customer.name === "Alice");
+const customerAlice: string[] = customers.find(
+  (customer) => customer.name === "Alice"
+);
 console.log(customerAlice);
 
 ////------------------ Task 4
 
-const orderIndex = orders.findIndex((order) => order.orderId === 102);
+const orderIndex: number[] = orders.findIndex((order) => order.orderId === 102);
 
 console.log(orderIndex);
 
 ///------------------- Task 5
 
-const customersInUsa = customers.some(
+const customersInUsa: string[] = customers.some(
   (customer) => customer.location.country === "USA"
 );
 
