@@ -49,72 +49,70 @@ const orders = [
     price: 800,
   },
   {
-    orderId: 102,
+    orderId: 103,
     customerId: 3,
     product: "Hairdryer",
     quantity: 3,
     price: 500,
   },
   {
-    orderId: 102,
+    orderId: 104,
     customerId: 4,
     product: "Ipad",
     quantity: 4,
     price: 300,
   },
   {
-    orderId: 102,
+    orderId: 105,
     customerId: 5,
     product: "Kindle",
     quantity: 5,
     price: 150,
   },
 ];
+///////---------- Task 1
+const customersEmail = customers.map((customer) => customer.email);
 
-// ------------------------------------------
-const europeanCountries = ["France", "England", "Spain", "Germany", "Italy"];
-const customersFromEurope = customers.map((person) => {
-  for (let i = 0; i < europeanCountries.length; i++) {
-    if (person.location.country === europeanCountries[i]) {
-      return "Country is in Europe";
-    }
-  }
-  return "Country is not in Europe";
+// console.log(customersEmail);
+
+///////--------- Task 2
+const totalValue = orders.filter((order) => {
+  return order.quantity * order.price > 1000;
 });
 
-console.log(customersFromEurope);
+// console.log(totalValue);
 
-//----------------------------------------
-const customerWithPreAcc = customers.filter((obj) => {
-  return obj.account === "Premium";
-});
+////-------------- Task 3
 
-const customerWithTrialAcc = customers.filter((obj) => {
-  return obj.account === "Trial";
-});
+const customerAlice = customers.find((customer) => customer.name === "Alice");
+// console.log(customerAlice);
 
-console.log("Premium Accounts:", customerWithPreAcc);
-console.log("Trial Accounts:", customerWithTrialAcc);
+////------------------ Task 4
 
-//------------------------------------
+const orderIndex = orders.findIndex((order) => order.orderId === 102);
 
-const isThereAlice = customers.some((obj) => obj.name === "Alice");
+// console.log(orderIndex);
 
-const isThereSteve = customers.some((obj) => obj.name === "Steve");
+///------------------- Task 5
 
-console.log(isThereAlice, isThereSteve);
-
-// --------------------------------
-
-customers.forEach((userName) => (userName.name = "NO Name"));
-
-console.log(customers);
-
-// ----------------------------------------------------
-
-const taxOfProduct = orders.forEach(
-  (obj) => (obj.tax = (obj.price * 10) / 100)
+const customersInUsa = customers.some(
+  (customer) => customer.location.country === "USA"
 );
-console.log(taxOfProduct); // tax of pro will be undefined but we will see tax in our orders array,because we used forEach method
 
-console.log(orders);
+// console.log(customersInUsa);
+
+/////------------------------- Task 6
+
+orders.forEach((order) => {
+  const customerName = customers.find(
+    (customer) => customer.id === order.customerId
+  ).name;
+  console.log(
+    `Order ${order.orderId} by ${customerName} : ${order.quantity} x ${order.product} for $${order.price} each`
+  );
+});
+
+/////----------------- Task 7
+const customerName = customers.sort((a, b) => a.name.localeCompare(b.name));
+
+console.log(customerName);
